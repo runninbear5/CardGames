@@ -63,6 +63,6 @@ public class BlackJack {
 		    }
 	    }
 	    System.out.println("Do you want to play again?");
-	    return sc.nextLine().toLowerCase().equals("yes");//looks to see if play agin
+	    return sc.nextLine().toLowerCase().equals("yes");//looks to see if play again
 	}
 }
