@@ -24,13 +24,16 @@ public class BlackJack {
 	    
 	    while(playersTurn){//checks to see if its the dealer sturn
 	       Player player = new Player();//gets instance of player class
+	       
 	       if(sc.nextLine().toLowerCase().equals("hit")) {//checks to see what to do
 	    	   playersTotalValue = player.hit(playersTotalValue /*get new card*/);
 	       }else if(sc.nextLine().toLowerCase().equals("stay")){
 	    	  playersTurn =  player.stay(playersTotalValue);
 	       }
 	       
-	       if(playersTotalValue > 21) {//checks to see if player busted
+	       if(playersTotalValue > 21 && /*Check if one of the cards is an ace*/) {//looks for ace and if found removes 10 to make ace equal to 1
+	    	   playersTotalValue -= 10;
+	       }else if(playersTotalValue > 21) {//checks to see if player busted
 	    	   System.out.println("You have busted with a total value of " +playersTotalValue+
 	    			   				"The dealer has a total value of "+dealersTotalValue);
 	    	   playersTurn = false;//stops player from contnuing if bust
@@ -46,7 +49,9 @@ public class BlackJack {
 	    	}else {//stays if over 16
 	    		dealersTurn = dealer.stay();
 	    	}
-	    	if(dealersTotalValue > 21) {//checks for dealer bust
+	    	if(dealersTotalValue > 21 && /*Check if one of the cards is an ace*/) {//looks for ace and if found removes 10 to make ace equal to 1
+		    	   dealersTotalValue -= 10;
+		    }else if(dealersTotalValue > 21) {//checks for dealer bust
 	    		System.out.println("The delaer has busted with a total value of " +dealersTotalValue+
 		   				"You won! You have a total value of "+playersTotalValue);
 	    		dealersTurn = false;//stops dealer from starting if bust
