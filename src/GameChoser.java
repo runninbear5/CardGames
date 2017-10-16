@@ -13,6 +13,7 @@ public class GameChoser{
                 while(cont){
                 	BlackJack bj = new BlackJack();
                 	cont = bj.playBlackJack();
+                	//test
                 }
             }
         }
