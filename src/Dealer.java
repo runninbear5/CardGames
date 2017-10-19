@@ -1,7 +1,7 @@
 
 public class Dealer {
-	public int hit(int totalCardValue, /*new Card*/){
-		totalCardValue += /*Get new cards value*/;
+	public int hit(int totalCardValue, Card newCard){
+		totalCardValue += newCard.getFaceValue();
 		return totalCardValue;
 	}
 	public boolean stay() {

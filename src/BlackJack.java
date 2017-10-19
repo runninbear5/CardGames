@@ -35,7 +35,7 @@ public class BlackJack {
 	       if(sc.nextLine().toLowerCase().equals("hit")) {//checks to see what to do
 	    	   //Get new card
 	    	   playerCards.add(player1.getCard());
-	    	   playersTotalValue = player1.hit(playersTotalValue, playerCards.get(playerCards.size()-1).cardValue());
+	    	   playersTotalValue = player1.hit(playersTotalValue, playerCards.get(playerCards.size()-1));
 	       }else if(sc.nextLine().toLowerCase().equals("stay")){
 	    	  playersTurn =  player1.stay(playersTotalValue);
 	       }
@@ -57,13 +57,13 @@ public class BlackJack {
 	    	Dealer dealer = new Dealer();//creates new instance of dealer
 	    	if(dealersTotalValue <= 16) {//checks to see if dealer should hit or stay
 	    		//get new card
-	    		dealerCards.add(/*new card*/);
-	    		dealersTotalValue = dealer.hit(dealersTotalValue/*, new card */);
+	    		dealerCards.add(player1.getCard());
+	    		dealersTotalValue = dealer.hit(dealersTotalValue, dealerCards.get(dealerCards.size() -1));
 	    	}else {//stays if over 16
 	    		dealersTurn = dealer.stay();
 	    	}
-	    	for(Cards card: dealerCards) {
-		    	if(dealersTotalValue > 21 && card.getValue()) {//looks for ace and if found removes 10 to make ace equal to 1
+	    	for(Card card: dealerCards) {
+		    	if(dealersTotalValue > 21 && card.getFaceValue()==11) {//looks for ace and if found removes 10 to make ace equal to 1
 			    	   dealersTotalValue -= 10;
 			    }else if(dealersTotalValue > 21) {//checks for dealer bust
 		    		System.out.println("The delaer has busted with a total value of " +dealersTotalValue+

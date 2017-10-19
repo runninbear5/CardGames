@@ -53,10 +53,9 @@ public class Player {
 		Deck dk = new Deck();
 		return dk.getCards(numOfCards);
 	}
-	public int hit(int totalCardValue) {
-		
-     	totalCardValue +=/*get card value*/;
-     	System.out.println("Your new card is a " +/*get card name and suit*/);
+	public int hit(int totalCardValue, Card newCard) {
+     	totalCardValue += newCard.getFaceValue();
+     	System.out.println("Your new card is a " +newCard.faceName +" of " +newCard.suit);
      	System.out.println("Your total card value is " +totalCardValue);
      	return totalCardValue;
 	}
