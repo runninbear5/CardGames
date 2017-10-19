@@ -3,11 +3,15 @@ import java.util.List;
 import java.util.Scanner;
 public class BlackJack {
 	public boolean playBlackJack() {
-		//call card class here// creates an instance of the card class
-	    //get 2 cards here //gets 2 cards for player
+		Player player1 = new Player("player1");//gets instance of player class
+	    Deck dk = new Deck();
 	    //get 2 cards here //gets 2 cards for dealer
-		ArrayList</*Cards*/> playerCards = new ArrayList</*cards*/>();
-		ArrayList</*Cards*/> dealerCards = new ArrayList</*cards*/>();
+		ArrayList<Card> playerCards = new ArrayList<Card>();
+		ArrayList<Card> dealerCards = new ArrayList<Card>();
+		playerCards.add(dk.getCard());//adds one player card
+		playerCards.add(dk.getCard());//adds a second player card
+		dealerCards.add(dk.getCard());//adds one dealer card
+		dealerCards.add(dk.getCard());//adds a second dealer car
 		Scanner sc = new Scanner(System.in);// creates a scanner
 	    int playersTotalValue = 0;//inits players cards value
 	    int dealersTotalValue = 0;//inits daealers card value
@@ -17,28 +21,27 @@ public class BlackJack {
 	    
 	    for(int i=0; i<playerCards.size(); i++){//gets the players total cards value
 	        System.out.println("Your " +i+ "th card is " +playerCards.get(i));
-	        playersTotalValue += playerCards.get(i).cardValue();
+	        playersTotalValue += playerCards.get(i).getFaceValue();
 	    } 
 	    
 	    for(int i=0; i<dealerCards.size(); i++) { //gets the dealers total card value
-	    	dealersTotalValue += dealerCards.get(i).cardValue();
+	    	dealersTotalValue += dealerCards.get(i).getFaceValue();
 	    }
 	    System.out.println("Your total card value is " +playersTotalValue); //prints to the players total value
-	    System.out.println("The dealers face up card is " +dealerCards.get(0).cardValue()); //prints the dealers first card
+	    System.out.println("The dealers face up card is " +dealerCards.get(0).getFaceValue()); //prints the dealers first card
 	    
 	    while(playersTurn){//checks to see if its the dealer turn
-	       Player player = new Player();//gets instance of player class
 	       
 	       if(sc.nextLine().toLowerCase().equals("hit")) {//checks to see what to do
 	    	   //Get new card
-	    	   playerCards.add(/*new card*/);
-	    	   playersTotalValue = player.hit(playersTotalValue, playerCards.get(playerCards.size()-1).cardValue());
+	    	   playerCards.add(player1.getCard());
+	    	   playersTotalValue = player1.hit(playersTotalValue, playerCards.get(playerCards.size()-1).cardValue());
 	       }else if(sc.nextLine().toLowerCase().equals("stay")){
-	    	  playersTurn =  player.stay(playersTotalValue);
+	    	  playersTurn =  player1.stay(playersTotalValue);
 	       }
 	       
-	       for(Cards card: playerCards) {
-		       if(playersTotalValue > 21 && card.getValue()) {//looks for ace and if found removes 10 to make ace equal to 1
+	       for(Card card: playerCards) {
+		       if(playersTotalValue > 21 && card.getFaceValue()==11) {//looks for ace and if found removes 10 to make ace equal to 1
 		    	   playersTotalValue -= 10;
 		       }else if(playersTotalValue > 21) {//checks to see if player busted
 		    	   System.out.println("You have busted with a total value of " +playersTotalValue+

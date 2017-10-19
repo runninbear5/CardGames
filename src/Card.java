@@ -62,6 +62,16 @@ public class Card {
 	public int getFaceValue() {
 		return faceValue;
 	}
+	public Card[] getRandomCards(int numOfCards) {
+		Deck deck = new Deck();
+		Card[] decks = deck.getCards(2);
+		return decks;
+		
+	}
+	public Card getRandomCard() {
+		Deck deck = new Deck();
+		return deck.getCard();
+	}
 	
 	/**
 	 * 
