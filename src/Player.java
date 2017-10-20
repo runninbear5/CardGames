@@ -58,7 +58,7 @@ public class Player {
 	}
 	public int hit(int totalCardValue, Card newCard) {
      	totalCardValue += newCard.getFaceValue();
-     	System.out.println("Your new card is a " +newCard.faceName +" of " +newCard.suit);
+     	System.out.println("Your new card is a " +newCard.getCardName() +" of " +newCard.suit);
      	System.out.println("Your total card value is " +totalCardValue);
      	return totalCardValue;
 	}
@@ -68,6 +68,16 @@ public class Player {
      }
      public static CardMaker getCardMaker() {
     	 return cm;
+     }
+     public int addTotalValue(int totalValue, Card newCard) {
+    	 if(newCard.getCardName().equals("king") || newCard.getCardName().equals("queen") || newCard.getCardName().equals("jack")) {
+    		 totalValue += 10;
+    	 }else if(newCard.getCardName().equals("ace")) {
+    		 totalValue+= 11;
+    	 }else {
+    		 totalValue += newCard.getFaceValue();
+    	 }
+    	 return totalValue;
      }
 	
 	
