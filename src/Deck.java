@@ -62,25 +62,18 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
-		try
-		{
-			CardMaker cm = new CardMaker(); //throws IOException I need to put this in somewhere
+			CardMaker cm = Player.getCardMaker();//throws IOException I need to put this in somewhere
 			for (int i = 0; i < handOfCards.length; i++) {
-				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
+				while (!(cm.fullDeck.get(randomCard).inDeck == true && cm.fullDeck.get(randomCard).inHand == false && cm.fullDeck.get(randomCard).inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
 				}	
-				handOfCards[i] = cm.fullDeck[randomCard];
+				handOfCards[i] = cm.fullDeck.get(randomCard);
 				handOfCards[i].inDeck = false;
 				handOfCards[i].inHand = true;
 			// Basic bool logic to figure out if a card can be drawn from the deck or not.
 //			System.out.println(handOfCards[i]);
 			}
 		
-		}
-		catch (IOException e)
-		{
-			System.out.println("IOException Error");
-		}
 		return handOfCards;
 	}
 	public Card getCard() {
@@ -101,25 +94,18 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
-		try
-		{
-			CardMaker cm = new CardMaker(); //throws IOException I need to put this in somewhere
+			CardMaker cm = Player.getCardMaker();//throws IOException I need to put this in somewhere
 			for (int i = 0; i < singleHandOfCard.length; i++) {
-				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
+				while (!(cm.fullDeck.get(randomCard).inDeck == true && cm.fullDeck.get(randomCard).inHand == false && cm.fullDeck.get(randomCard).inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
 				}	
-				singleHandOfCard[i] = cm.fullDeck[randomCard];
+				singleHandOfCard[i] = cm.fullDeck.get(randomCard);
 				singleHandOfCard[i].inDeck = false;
 				singleHandOfCard[i].inHand = true;
 			// Basic bool logic to figure out if a card can be drawn from the deck or not.
 //			System.out.println(handOfCards[i]);
 			}
 		
-		}
-		catch (IOException e)
-		{
-			System.out.println("IOException Error");
-		}
 		return singleHandOfCard[0];
 	}
 	

@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class BlackJack {
-	public boolean playBlackJack() {
+	public boolean playBlackJack() throws IOException {
 		Player player1 = new Player("player1");//gets instance of player class
 	    Deck dk = new Deck();
 	    //get 2 cards here //gets 2 cards for dealer
@@ -20,7 +21,7 @@ public class BlackJack {
 	    boolean notBust = true; //boolean saying if busted or not, used at the end
 	    
 	    for(int i=0; i<playerCards.size(); i++){//gets the players total cards value
-	        System.out.println("Your " +i+ "th card is " +playerCards.get(i));
+	        System.out.println("Your " +i+ "th card is " +playerCards.get(i).getCardName() + " "+ playerCards.get(i).getFaceValue());
 	        playersTotalValue += playerCards.get(i).getFaceValue();
 	    } 
 	    
@@ -28,10 +29,9 @@ public class BlackJack {
 	    	dealersTotalValue += dealerCards.get(i).getFaceValue();
 	    }
 	    System.out.println("Your total card value is " +playersTotalValue); //prints to the players total value
-	    System.out.println("The dealers face up card is " +dealerCards.get(0).getFaceValue()); //prints the dealers first card
-	    
+	    System.out.println("The dealers face up card is " +dealerCards.get(0).getCardName()); //prints the dealers first card
 	    while(playersTurn){//checks to see if its the dealer turn
-	       
+	       System.out.println("Do you want to 'hit' or 'stay'");
 	       if(sc.nextLine().toLowerCase().equals("hit")) {//checks to see what to do
 	    	   //Get new card
 	    	   playerCards.add(player1.getCard());

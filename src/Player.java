@@ -4,6 +4,7 @@
  * Money (for betting games)
  * 
  */
+import java.io.IOException;
 import java.util.Scanner;
 public class Player {
 	
@@ -11,12 +12,14 @@ public class Player {
 	private Deck hand;
 	private boolean isDealer;
 	private int money;
+	private static CardMaker cm;
 	
-	public Player (String name)
+	public Player (String name) throws IOException
 	{
 		playerName = name;
 		hand = new Deck();
 		isDealer = false;
+		cm = new CardMaker();
 		
 	}
 	
@@ -62,6 +65,9 @@ public class Player {
      public boolean stay(int totalCardValue) {
     	 System.out.println("Your total card value is " +totalCardValue);
     	 return false;
+     }
+     public static CardMaker getCardMaker() {
+    	 return cm;
      }
 	
 	

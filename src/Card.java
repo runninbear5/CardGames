@@ -23,7 +23,7 @@ public class Card {
 	public boolean inPlay;
 	
 	public String[] suitName = new String[] {"spade", "club", "diamond", "heart"};
-	public String[] faceName = new String[] {"", "ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
+	public String[] faceName = new String[] { "", "ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
 	
 	//private so that nothing can change the value of the card except the class of card and the subclass
 	/**
@@ -39,6 +39,17 @@ public class Card {
 		//this.suit relates suit to the class suit instead of the constructor suit
 		this.faceValue = faceValue;
 		cardImage = card;
+		this.inDeck = inDeck;
+		this.inPlay = inPlay;
+		this.inHand = inHand;
+		
+	}
+	public Card(String suit, int faceValue, boolean inDeck, boolean inHand, boolean inPlay) { //builds the card passing in value slots
+		
+		this.suit = suit; // this is now a local variable that belongs to the method, not the class
+		//this.suit relates suit to the class suit instead of the constructor suit
+		this.faceValue = faceValue;
+		cardImage = null;
 		this.inDeck = inDeck;
 		this.inPlay = inPlay;
 		this.inHand = inHand;
@@ -61,6 +72,9 @@ public class Card {
 	 */
 	public int getFaceValue() {
 		return faceValue;
+	}
+	public String getCardName() {
+		return faceName[faceValue];
 	}
 	public Card[] getRandomCards(int numOfCards) {
 		Deck deck = new Deck();
