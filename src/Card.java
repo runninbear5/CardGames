@@ -44,6 +44,17 @@ public class Card {
 		this.inHand = inHand;
 		
 	}
+	public Card(String suit, int faceValue, boolean inDeck, boolean inHand, boolean inPlay) { //builds the card passing in value slots
+		
+		this.suit = suit; // this is now a local variable that belongs to the method, not the class
+		//this.suit relates suit to the class suit instead of the constructor suit
+		this.faceValue = faceValue;
+		cardImage = null;
+		this.inDeck = inDeck;
+		this.inPlay = inPlay;
+		this.inHand = inHand;
+		
+	}
 	/*
 	 *This returns a String representation of a Card object
 	 *@return

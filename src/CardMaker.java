@@ -14,8 +14,9 @@ public class CardMaker {
 		{
 			for (String suit: suits) {
 				int index = fullDeck.length;  
-				String fileName = "file:///D:/CardGame/resources/" + face + "_" + "of" + "_" + suit + ".png";
-				fullDeck[index] = new Card(suit, face,ImageIO.read(new File (fileName)), true, false, false);
+				String fileName = "C:\\Users\\lieberb1400\\Documents\\Eclipse\\CardGames\\resources" + face + "_" + "of" + "_" + suit + ".png";
+				fullDeck[index-1] = new Card(suit, face, true, false, false);
+				//add back later to get buffered image ImageIO.read(new File (fileName))
 				//need to set it so that if suit = 0 spades, suit = 1 clubs, and so on 
 			}
 		}

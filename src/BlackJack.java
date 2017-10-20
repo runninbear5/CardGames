@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class BlackJack {
-	public boolean playBlackJack() {
+	public boolean playBlackJack() throws IOException {
 		Player player1 = new Player("player1");//gets instance of player class
 	    Deck dk = new Deck();
 	    //get 2 cards here //gets 2 cards for dealer

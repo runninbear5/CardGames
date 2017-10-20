@@ -1,6 +1,7 @@
+import java.io.IOException;
 import java.util.Scanner;
 public class GameChoser{
-    public static void main(String [] args){
+    public static void main(String [] args) throws IOException{
         String blackJack = "blackjack";//setting game names
         Scanner sc = new Scanner(System.in);//init scanner
         System.out.println("Welcome to game center, would you like to play: BlackJack");

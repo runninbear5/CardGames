@@ -62,9 +62,7 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
-		try
-		{
-			CardMaker cm = new CardMaker(); //throws IOException I need to put this in somewhere
+			CardMaker cm = Player.getCardMaker(); //throws IOException I need to put this in somewhere
 			for (int i = 0; i < handOfCards.length; i++) {
 				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
@@ -76,11 +74,6 @@ public class Deck {
 //			System.out.println(handOfCards[i]);
 			}
 		
-		}
-		catch (IOException e)
-		{
-			System.out.println("IOException Error");
-		}
 		return handOfCards;
 	}
 	public Card getCard() {
@@ -101,9 +94,7 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
-		try
-		{
-			CardMaker cm = new CardMaker(); //throws IOException I need to put this in somewhere
+			CardMaker cm = Player.getCardMaker(); //throws IOException I need to put this in somewhere
 			for (int i = 0; i < singleHandOfCard.length; i++) {
 				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
@@ -115,11 +106,6 @@ public class Deck {
 //			System.out.println(handOfCards[i]);
 			}
 		
-		}
-		catch (IOException e)
-		{
-			System.out.println("IOException Error");
-		}
 		return singleHandOfCard[0];
 	}
 	
