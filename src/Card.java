@@ -76,6 +76,9 @@ public class Card {
 	public String getCardName() {
 		return faceName[faceValue];
 	}
+	public String getSuit() {
+		return suit;
+	}
 	public Card[] getRandomCards(int numOfCards) {
 		Deck deck = new Deck();
 		Card[] decks = deck.getCards(2);
