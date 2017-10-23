@@ -62,12 +62,16 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
+<<<<<<< HEAD
 			CardMaker cm = Player.getCardMaker(); //throws IOException I need to put this in somewhere
+=======
+			CardMaker cm = Player.getCardMaker();//throws IOException I need to put this in somewhere
+>>>>>>> be6a8a291715b4471092bde6a20dbf729889b66d
 			for (int i = 0; i < handOfCards.length; i++) {
-				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
+				while (!(cm.fullDeck.get(randomCard).inDeck == true && cm.fullDeck.get(randomCard).inHand == false && cm.fullDeck.get(randomCard).inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
 				}	
-				handOfCards[i] = cm.fullDeck[randomCard];
+				handOfCards[i] = cm.fullDeck.get(randomCard);
 				handOfCards[i].inDeck = false;
 				handOfCards[i].inHand = true;
 			// Basic bool logic to figure out if a card can be drawn from the deck or not.
@@ -94,12 +98,16 @@ public class Deck {
 		// getting and casting random number
 		int randomCard = (int)(Math.random() * 52);
 		
+<<<<<<< HEAD
 			CardMaker cm = Player.getCardMaker(); //throws IOException I need to put this in somewhere
+=======
+			CardMaker cm = Player.getCardMaker();//throws IOException I need to put this in somewhere
+>>>>>>> be6a8a291715b4471092bde6a20dbf729889b66d
 			for (int i = 0; i < singleHandOfCard.length; i++) {
-				while (!(cm.fullDeck[randomCard].inDeck == true && cm.fullDeck[randomCard].inHand == false && cm.fullDeck[randomCard].inPlay == false)) {
+				while (!(cm.fullDeck.get(randomCard).inDeck == true && cm.fullDeck.get(randomCard).inHand == false && cm.fullDeck.get(randomCard).inPlay == false)) {
 					randomCard = (int)(Math.random() *52);
 				}	
-				singleHandOfCard[i] = cm.fullDeck[randomCard];
+				singleHandOfCard[i] = cm.fullDeck.get(randomCard);
 				singleHandOfCard[i].inDeck = false;
 				singleHandOfCard[i].inHand = true;
 			// Basic bool logic to figure out if a card can be drawn from the deck or not.

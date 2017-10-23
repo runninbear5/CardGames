@@ -23,7 +23,7 @@ public class Card {
 	public boolean inPlay;
 	
 	public String[] suitName = new String[] {"spade", "club", "diamond", "heart"};
-	public String[] faceName = new String[] {"", "ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
+	public String[] faceName = new String[] { "", "ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
 	
 	//private so that nothing can change the value of the card except the class of card and the subclass
 	/**
@@ -72,6 +72,9 @@ public class Card {
 	 */
 	public int getFaceValue() {
 		return faceValue;
+	}
+	public String getCardName() {
+		return faceName[faceValue];
 	}
 	public Card[] getRandomCards(int numOfCards) {
 		Deck deck = new Deck();

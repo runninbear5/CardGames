@@ -21,23 +21,23 @@ public class BlackJack {
 	    boolean notBust = true; //boolean saying if busted or not, used at the end
 	    
 	    for(int i=0; i<playerCards.size(); i++){//gets the players total cards value
-	        System.out.println("Your " +i+ "th card is " +playerCards.get(i));
-	        playersTotalValue += playerCards.get(i).getFaceValue();
+	        System.out.println("Your " +i+ "th card is " +playerCards.get(i).getCardName() + " of "+ playerCards.get(i).suit);
+	        playersTotalValue= player1.addTotalValue(playersTotalValue, playerCards.get(i));
 	    } 
 	    
 	    for(int i=0; i<dealerCards.size(); i++) { //gets the dealers total card value
 	    	dealersTotalValue += dealerCards.get(i).getFaceValue();
 	    }
 	    System.out.println("Your total card value is " +playersTotalValue); //prints to the players total value
-	    System.out.println("The dealers face up card is " +dealerCards.get(0).getFaceValue()); //prints the dealers first card
-	    
+	    System.out.println("The dealers face up card is " +dealerCards.get(0).getCardName() +" of "+ dealerCards.get(0).suit); //prints the dealers first card
 	    while(playersTurn){//checks to see if its the dealer turn
-	       
-	       if(sc.nextLine().toLowerCase().equals("hit")) {//checks to see what to do
+	       System.out.println("Do you want to 'hit' or 'stay'");
+	       String option = sc.nextLine().toLowerCase();
+	       if(option.equals("hit")) {//checks to see what to do
 	    	   //Get new card
 	    	   playerCards.add(player1.getCard());
 	    	   playersTotalValue = player1.hit(playersTotalValue, playerCards.get(playerCards.size()-1));
-	       }else if(sc.nextLine().toLowerCase().equals("stay")){
+	       }else if(option.equals("stay")){
 	    	  playersTurn =  player1.stay(playersTotalValue);
 	       }
 	       
@@ -76,10 +76,10 @@ public class BlackJack {
 	    }
 	    if(notBust) {//checks to make sure no one has busted
 		    if(playersTotalValue > dealersTotalValue) {
-		    	System.out.println("You win, you had a total value of " +playersTotalValue+ "/n"+ 
+		    	System.out.println("You win, you had a total value of " +playersTotalValue+ "\n"+ 
 		    						"The dealer had a total value of " +dealersTotalValue);
 		    }else {
-		    	System.out.println("The dealer won, you had a total value of " +playersTotalValue+ "/n"+ 
+		    	System.out.println("The dealer won, you had a total value of " +playersTotalValue+ "\n"+ 
 						"The dealer had a total value of " +dealersTotalValue);
 		    }
 	    }
