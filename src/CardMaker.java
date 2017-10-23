@@ -10,7 +10,7 @@ public class CardMaker {
 	
 	public CardMaker() throws IOException{
 		String[] suits = {"Diamonds", "Hearts", "Spades", "Clubs"};
-		int face = 1;
+		int face = 0;
 		for (; face <= 13; face++)
 		{
 <<<<<<< HEAD
