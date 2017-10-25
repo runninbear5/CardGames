@@ -71,8 +71,10 @@ public class Player {
      public int addTotalValue(int totalValue, Card newCard) {
     	 if(newCard.getCardName().equals("king") || newCard.getCardName().equals("queen") || newCard.getCardName().equals("jack")) {
     		 totalValue += 10;
+    		 newCard.setValue(10);
     	 }else if(newCard.getCardName().equals("ace")) {
     		 totalValue+= 11;
+    		// newCard.setValue(11);
     	 }else {
     		 totalValue += newCard.getFaceValue();
     	 }

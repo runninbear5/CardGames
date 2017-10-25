@@ -42,8 +42,9 @@ public class BlackJack {
 	       }
 	       
 	       for(Card card: playerCards) {
-		       if(playersTotalValue > 21 && card.getCardName().equals("ace")) {//looks for ace and if found removes 10 to make ace equal to 1
+		       if(playersTotalValue > 21 && card.getFaceValue()==1 && card.getCardName().equals("ace")) {//looks for ace and if found removes 10 to make ace equal to 1
 		    	   playersTotalValue -= 10;
+		    	   card.setValue(0);
 		    	   System.out.println("You busted with the ace as 11, we have lowerd it by ten, your new total is " +playersTotalValue);
 		       }
 	       }

@@ -13,6 +13,7 @@ public class GameChoser {
 			String gameChoice = sc.nextLine().toLowerCase();// looking for user input
 			if (gameChoice.equals(blackJack)) {// checks if equal to blackjack to then play blackjack
 				System.out.println("Welcome to Black Jack, where the money is fake but the fun is real");
+				cont = true;
 				while(cont) {
 					BlackJack bj = new BlackJack();
 					cont = bj.playBlackJack();

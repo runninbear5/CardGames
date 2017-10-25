@@ -89,6 +89,9 @@ public class Card {
 		Deck deck = new Deck();
 		return deck.getCard();
 	}
+	public void setValue(int newFaceValue) {
+		faceValue = newFaceValue;
+	}
 	
 	/**
 	 * 
