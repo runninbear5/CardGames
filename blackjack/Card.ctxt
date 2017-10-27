@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=cardImage\ faceValue
+comment0.target=Card(java.lang.String,\ int)
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=int\ getFaceValue()
+numComments=3

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=suit\ faceValue\ card\ inDeck\ inHand\ inPlay
+comment0.target=CardNonImage(java.lang.String,\ int,\ java.awt.image.BufferedImage,\ boolean,\ boolean,\ boolean)
+comment0.text=\r\n\ The\ constructor\ for\ the\ Card\ class\r\n\ @param\ suit\ \=\ "spades"\ "clubs"\ "hearts"\ or\ "diamonds"\r\n\ @param\ face\ \=\ 2,3,4...9,10,Jack,Queen,King,Ace\r\n\ @param\ faceValue\ \=\ 2,3,4...\ 12,13,14\r\n\ @param\ card\ \=\ BufferedImage\ that\ represents\ the\ card\r\n
+comment1.params=suit\ faceValue\ inDeck\ inHand\ inPlay
+comment1.target=CardNonImage(java.lang.String,\ int,\ boolean,\ boolean,\ boolean)
+comment2.params=suit\ faceValue\ inDeck\ inHand\ inPlay\ fileName
+comment2.target=CardNonImage(java.lang.String,\ int,\ boolean,\ boolean,\ boolean,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\r\nThis\ returns\ a\ String\ representation\ of\ a\ Card\ object\r\n@return\r\n
+comment4.params=
+comment4.target=int\ getFaceValue()
+comment4.text=\r\n\ This\ returns\ the\ faceValue\ of\ the\ card\ object\ as\ an\ int\r\n\ @return\r\n
+comment5.params=
+comment5.target=java.lang.String\ getCardName()
+comment6.params=
+comment6.target=java.lang.String\ getSuit()
+comment7.params=numOfCards
+comment7.target=CardNonImage[]\ getRandomCards(int)
+comment8.params=
+comment8.target=CardNonImage\ getRandomCard()
+comment9.params=
+comment9.target=java.lang.String\ getFileName()
+numComments=10
