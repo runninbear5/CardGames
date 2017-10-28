@@ -102,6 +102,9 @@ public class CardNonImage {
     public String getFileName(){
         return fileName;
     }
+    public void setFaceValue(int value){
+        faceValue = value;
+    }
     
     /**
      * 

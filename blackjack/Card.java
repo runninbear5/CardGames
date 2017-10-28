@@ -19,6 +19,15 @@ public class Card extends Actor
         getImage().scale(75,100);
         this.cardImage = cardImage;
         this.faceValue = faceValue;
+        if(faceValue == 1){
+            this.faceValue = 11;
+        } else if(faceValue == 11){
+            this.faceValue = 10;
+        }else if(faceValue == 12){
+            this.faceValue = 10;
+        }else if(faceValue == 13){
+            this.faceValue = 10;
+        }
     }
     public void act() 
     {

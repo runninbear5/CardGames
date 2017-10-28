@@ -1,8 +1,5 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Deck()
-comment1.params=numOfCards
-comment1.target=CardNonImage[]\ getCards(int)
-comment2.params=
-comment2.target=CardNonImage\ getCard()
-numComments=3
+comment0.target=Deck
+comment1.params=
+comment1.target=Deck()
+numComments=2

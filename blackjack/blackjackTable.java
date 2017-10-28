@@ -10,9 +10,11 @@ import java.util.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class blackjackTable extends World
 {
-    private static Player player1;
-    static ArrayList<Card> playerCards = new ArrayList<Card>();
-    static ArrayList<Card> dealerCards = new ArrayList<Card>();
+    private Player player1;
+    ArrayList<Card> playerCards = new ArrayList<Card>();
+    ArrayList<Card> dealerCards = new ArrayList<Card>();
+    ArrayList<CardNonImage> playerCardsNon = new ArrayList<CardNonImage>();
+    ArrayList<CardNonImage> dealerCardsNon = new ArrayList<CardNonImage>();
     boolean playersTurn = true;
     boolean dealersTurn = false;
     boolean endGame = false;
@@ -33,6 +35,7 @@ public class blackjackTable extends World
         addObject(new Hit(), 392, 545);
         addObject(new Stay(), 625, 545);
     }
+
     public void shuffle(){
         //         String[] cards = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
         //         String[] suits = {"hearts", "diamonds", "clubs", "spades"};
@@ -53,92 +56,130 @@ public class blackjackTable extends World
         CardNonImage tempCard = getCard();
         Card card1 = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         playerCards.add(card1);
+        playerCardsNon.add(tempCard);
         tempCard = getCard();
         Card card2 = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         playerCards.add(card2);
+        playerCardsNon.add(tempCard);
+        playerTotal += card1.getFaceValue() + card2.getFaceValue();
         tempCard = getCard();
+        dealerCardsNon.add(tempCard);
         Card dealersCard1 = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         tempCard = getCard();
         Card dealersCard2 = new Card(tempCard.getFileName(), tempCard.getFaceValue());
+        dealerTotal += dealersCard1.getFaceValue() + dealersCard2.getFaceValue();
         dealerCards.add(dealersCard1);
         dealerCards.add(dealersCard2);
+        dealerCardsNon.add(tempCard);
         addObject(card1, 470, 460);
         addObject(card2, 550, 460);
         addObject(dealersCard1, 470, 115);
         addObject(new cardBack(), 550, 115);
     }
+
     public CardNonImage getCard(){
         return player1.getCard();
     }
+
     public void addPlayerCard(int x, int y){
         CardNonImage tempCard = getCard();
         Card card = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         playerCards.add(card);
+        playerCardsNon.add(tempCard);
+        playerTotal += card.getFaceValue();
         addObject(card , x, y);
     }
+
     public void addDealerCard(int x, int y){
         CardNonImage tempCard = getCard();
         Card card = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         dealerCards.add(card);
+        dealerCardsNon.add(tempCard);
         dealerTotal += dealerCards.get(dealerCards.size()-1).getFaceValue();
         addObject(card , x, y);
     }
+
     public void playerHit(){
         if(playersTurn){
             addPlayerCard(getXOfLatestPlayer()+80, getYOfLatestPlayer());
         }
+        for(CardNonImage cd : playerCardsNon){
+            if(playerTotal>21 && cd.getFaceValue()==1){
+                playerTotal -= 10;
+                cd.setFaceValue(11);
+            }
+        }
+        if(playerTotal > 21){
+            Greenfoot.setWorld(new PlayerBust(playerCards, dealerCards));
+        }
     }
+
     public void dealerHit(){
-            addDealerCard(getXOfLatestDealer()+80, getYOfLatestDealer());
+        addDealerCard(getXOfLatestDealer()+80, getYOfLatestDealer());
+        for(CardNonImage cd : dealerCardsNon){
+            if(dealerTotal>21 && cd.getFaceValue()==1){
+                dealerTotal -= 10;
+                cd.setFaceValue(11);
+            }
+        }
+        if(dealerTotal>21){
+            Greenfoot.setWorld(new WinnerScreen(playerCards, dealerCards));
+        }else{
+            dealer();
+        }
     }
+
     public int getXOfLatestPlayer(){
         return playerCards.get(playerCards.size()-1).getX();
     }
+
     public int getYOfLatestPlayer(){
         return playerCards.get(playerCards.size()-1).getY();
     }
+
     public int getXOfLatestDealer(){
         if(firstDealer){
-            return dealerCards.get(dealerCards.size()-1).getX();
+            return 550;
         }else{
             return dealerCards.get(dealerCards.size()-1).getX();
         }
     }
+
     public int getYOfLatestDealer(){
-        return dealerCards.get(dealerCards.size()-1).getY();
+        return 115;
     }
+
     public void playerStay(){
         playersTurn = false;
         dealersTurn = true;
         dealer();
     }
+
     public void dealerStay(){
         dealersTurn = false;
         endGame = true;
         endGame();
     }
+
     public void dealer(){
+        int total = 0;
         for(Card cd : dealerCards){
-                dealerTotal += cd.getFaceValue();
+            total += cd.getFaceValue();
         }
-        while(dealersTurn){
-            if(dealerTotal <= 16){
-                dealerHit();
-            }else{
-                dealerStay();
-            }
-        }
-       
-    }
-    public void endGame(){
-         for(Card cd: playerCards){
-            playerTotal += cd.getFaceValue();
-        }
-        if(playerTotal > 16){
-            Greenfoot.setWorld(new WinnerScreen());
+        if(total <= 16){
+            dealerHit();
         }else{
-            
+            dealerStay();
+        }
+
+    }
+
+    public void endGame(){
+        if(playerTotal > dealerTotal){
+            Greenfoot.setWorld(new WinnerScreen(playerCards, dealerCards));
+        }else{
+            Greenfoot.setWorld(new LoserScreen(playerCards, dealerCards));
         }
     }
-    }
+}
 
