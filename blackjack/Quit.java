@@ -15,7 +15,7 @@ public class Quit extends Actor
     public void act() 
     {
         if(Greenfoot.mouseClicked(this)){
-                    Greenfoot.stop();
+            System.exit(0);
         }
     }    
 }

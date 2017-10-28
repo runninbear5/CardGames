@@ -37,22 +37,6 @@ public class blackjackTable extends World
     }
 
     public void shuffle(){
-        //         String[] cards = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
-        //         String[] suits = {"hearts", "diamonds", "clubs", "spades"};
-        //         int randomValueCard1 = (int)(Math.random()*13);
-        //         int randomSuitCard1 = (int)(Math.random()*4);
-        //         int randomValueCard2 = (int)(Math.random()*13);
-        //         int randomSuitCard2 = (int)(Math.random()*4);
-        //         while(randomValueCard1 == randomValueCard2 && randomSuitCard1 == randomSuitCard2){
-        //             randomValueCard2 = (int)(Math.random()*13);
-        //             randomSuitCard2 = (int)(Math.random()*4);
-        //         }
-        //         String randomCard1 = cards[randomValueCard1]+"_of_"+suits[randomSuitCard1]+".png";
-        //         String randomCard2 = cards[randomValueCard2]+"_of_"+suits[randomSuitCard2]+".png";
-        //         Card card1 = new Card(randomCard1);
-        //         Card card2 = new Card(randomCard2);
-        //         addObject(card1, 470,460);
-        //         addObject(card2, 550, 460);
         CardNonImage tempCard = getCard();
         Card card1 = new Card(tempCard.getFileName(), tempCard.getFaceValue());
         playerCards.add(card1);

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ card\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=cardImage\ faceValue
+comment1.target=Card(java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=int\ getFaceValue()
+comment4.params=faceValue
+comment4.target=void\ setFaceValue(int)
+numComments=5
