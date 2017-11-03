@@ -13,6 +13,7 @@ public class Hit extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Hit() throws IOException{
+        getImage().scale(75,75);
     }
     public void act()
     {
