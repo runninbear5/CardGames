@@ -6,19 +6,33 @@ class.CardNonImage.superclass=
 class.Dealer.superclass=
 class.Deck.superclass=
 class.GameChoser.superclass=
+<<<<<<< HEAD
 class.Hit.image=HitCopy.png
 class.Hit.superclass=greenfoot.Actor
 class.LoserScreen.image=Loser.png
 class.LoserScreen.superclass=greenfoot.World
 class.PlayAgain.image=PlayAgain.png
+=======
+class.Hit.image=images.jpg
+class.Hit.superclass=greenfoot.Actor
+class.LoserScreen.image=Loser.png
+class.LoserScreen.superclass=greenfoot.World
+class.PlayAgain.image=button\ (3).png
+>>>>>>> 57c8b472f6ae696021370966085fa198e0960383
 class.PlayAgain.superclass=greenfoot.Actor
 class.Player.superclass=
 class.PlayerBust.image=PLayerBust.png
 class.PlayerBust.superclass=greenfoot.World
 class.PlayerTotal.superclass=greenfoot.Actor
+<<<<<<< HEAD
 class.Quit.image=quit.png
 class.Quit.superclass=greenfoot.Actor
 class.Stay.image=HitCopyCopy.png
+=======
+class.Quit.image=button\ (4).png
+class.Quit.superclass=greenfoot.Actor
+class.Stay.image=stay.jpg
+>>>>>>> 57c8b472f6ae696021370966085fa198e0960383
 class.Stay.superclass=greenfoot.Actor
 class.WinnerScreen.image=Winner.png
 class.WinnerScreen.superclass=greenfoot.World
@@ -180,6 +194,7 @@ dependency8.type=UsesDependency
 dependency9.from=WinnerScreen
 dependency9.to=Card
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=1048
 editor.fx.0.width=1938
 editor.fx.0.x=-9
@@ -188,6 +203,16 @@ mainWindow.height=1048
 mainWindow.width=1938
 mainWindow.x=-9
 mainWindow.y=-9
+=======
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+mainWindow.height=1048
+mainWindow.width=1932
+mainWindow.x=-9
+mainWindow.y=0
+>>>>>>> 57c8b472f6ae696021370966085fa198e0960383
 package.numDependencies=51
 package.numTargets=18
 project.charset=UTF-8
